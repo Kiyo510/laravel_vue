@@ -17,4 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('tests/test', 'Testcontroller@index');
+Route::get('tests/test', 'TestController@index');
+
+Route::get('contact/index', 'ContactFormController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
