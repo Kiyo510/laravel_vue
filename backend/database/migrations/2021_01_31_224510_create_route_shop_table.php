@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddShopOwnerToShopsTable extends Migration
+class CreateRouteShopTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddShopOwnerToShopsTable extends Migration
      */
     public function up()
     {
-        Schema::table('shops', function (Blueprint $table) {
-            $table->string('shop_owner');
+        Schema::create('route_shop', function (Blueprint $table) {
+            $table->unsignedBigInteger('route_id');
+            $table->unsignedBigInteger('shop_id');
+            $table->primary('route_id', 'shop_id');
         });
     }
 
@@ -25,8 +27,6 @@ class AddShopOwnerToShopsTable extends Migration
      */
     public function down()
     {
-        Schema::table('shops', function (Blueprint $table) {
-            $table->dropColumn('shop_owner');
-        });
+        Schema::dropIfExists('route_shop');
     }
 }
