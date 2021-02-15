@@ -60,3 +60,8 @@ fabric.properties
 
 # Docker Compose
 .env
+
+# public
+/public/css 
+/public/js  
+/public/mix-manifest.json
